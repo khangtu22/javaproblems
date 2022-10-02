@@ -1,0 +1,19 @@
+public class Fib {
+    static Map<Integer, Integer> memo = new HashMap<>(Map.of(0,0,1,1));
+    private static int calFib(int n){
+        if(!memo.containsKey(n)){
+            memo.put(n, calFib(n-1) + calFib(n-2));
+        }
+        return memo.get(n);
+    }
+
+    private static void printMap(Map<Integer, Integer> map){
+        for(Map.Entry<Integer, Integer> entry : memo.entrySet()){
+            System.out.println(entry.getKey());
+        }
+    }
+
+    public static void main(String[] args){
+        calFib(40);
+    }
+}
